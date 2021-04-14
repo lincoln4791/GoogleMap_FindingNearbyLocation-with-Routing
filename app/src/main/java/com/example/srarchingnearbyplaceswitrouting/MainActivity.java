@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void getPlaceSuggestions() {
         //***************** it will display places suggestions when we search for locations
-        Places.initialize(MainActivity.this,getString(R.string.mapAPi));
+        Places.initialize(MainActivity.this,"Your API KEY");
         List<Place.Field> placeLIst = Arrays.asList(Place.Field.ADDRESS,Place.Field.LAT_LNG, Place.Field.NAME);
         Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,placeLIst).build(MainActivity.this);
         startActivityForResult(intent,100);
