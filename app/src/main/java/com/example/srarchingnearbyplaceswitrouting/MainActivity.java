@@ -55,6 +55,7 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -472,7 +473,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .withListener(this)
                     .alternativeRoutes(true)
                     .waypoints(Start, End)
-                    .key("AIzaSyDOfp0Dzn5ydzgYN2-s96q44cJvbz7OHuY")  //also define your api key here.
+                    .key("YOUR_API_KEY")  //also define your api key here.
                     .build();
             routing.execute();
         }
@@ -557,9 +558,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onRoutingCancelled() {
-
+        findRoutes(myLatLng,destinationLatLng);
     }
-
 
 
 
@@ -568,7 +568,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
+        findRoutes(myLatLng,destinationLatLng);
     }
 
 
@@ -606,14 +606,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onRoutingFailure(RouteException e) {
-
+        View parentLayout = findViewById(android.R.id.content);
+        Snackbar snackbar= Snackbar.make(parentLayout, e.toString(), Snackbar.LENGTH_LONG);
+        snackbar.show();
     }
 
 
 
     @Override
     public void onRoutingStart() {
-
+        Toast.makeText(MainActivity.this,"Finding Route...",Toast.LENGTH_LONG).show();
     }
 
 
