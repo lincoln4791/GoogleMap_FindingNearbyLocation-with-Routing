@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SrarchingNearbyPlacesWitRouting</string>
+    <string name="mapAPi">AIzaSyCHWH-0DhamKqaGS310JDqNgg8S-f6afO8"</string>
+
+    <string-array name="types">
+        <item>atm</item>
+        <item>bank</item>
+        <item>bar</item>
+        <item>hospital</item>
+        <item>restaurant</item>
+        <item>primary_school</item>
+        <item>university</item>
+    </string-array>
+
+</resources>
