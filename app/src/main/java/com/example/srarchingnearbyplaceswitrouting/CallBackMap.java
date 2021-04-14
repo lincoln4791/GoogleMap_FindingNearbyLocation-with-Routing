@@ -12,8 +12,9 @@ import retrofit2.http.Query;
 
 public interface CallBackMap  {
 
-    @GET("maps/api/place/nearbysearch/json?radius=3000&keyword=cruise&key=AIzaSyCHWH-0DhamKqaGS310JDqNgg8S-f6afO8")
+    @GET("maps/api/place/nearbysearch/json?radius=3000&keyword=cruise")
     Call<JsonObject> callNearbyPlaces(@Query("type") String type,
-                                      @Query("location") String location);
+                                      @Query("location") String location,
+                                      @Query("key") String YOUR_API_KEY);
 
 }

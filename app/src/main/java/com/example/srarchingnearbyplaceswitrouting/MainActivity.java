@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .build();
 
         CallBackMap callBackMap = retrofit.create(CallBackMap.class);
-        Call<JsonObject> call = callBackMap.callNearbyPlaces(text, myLocationStr);
+        Call<JsonObject> call = callBackMap.callNearbyPlaces(text, myLocationStr,"YOUR_API_KEY");
         Log.d("tag", "location : " + myLocationStr);
         call.enqueue(new Callback<JsonObject>() {
             @Override
